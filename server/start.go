@@ -193,6 +193,7 @@ is performed. Note, when enabled, gRPC will also be automatically enabled.
 			if err != nil {
 				return fmt.Errorf("failed to initialize telemetry: %w", err)
 			}
+			serverCtx.Logger.Info("Before start", "file", serverCtx.Config.GenesisFile())
 			if !config.Genesis.StreamImport {
 				genesisFile, _ := tmtypes.GenesisDocFromFile(serverCtx.Config.GenesisFile())
 				if genesisFile.ChainID != clientCtx.ChainID {
